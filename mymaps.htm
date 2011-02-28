@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0px; padding: 0px }
+</style>
+<script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+<script type="text/javascript">
+  function initialize() {
+  	setloc("map1",41.140621,-73.31657, "Home");
+  	setloc("map2",41.241703,-73.02267, "Avalon Milford");
+  	setloc("map3",41.295139,-73.083763, "Pitney Bowes");
+  	setloc("map4",41.310941,-72.941781, "The Hospital of Saint Raphael");
+  	setloc("map5",40.709331,-74.011588, "Moody's");
+  	setloc("map6",34.228607,108.906344, "Xi'an");
+  	setloc("map7",34.352595,108.747789, "Xianyang");
+  }
+
+  function setloc(mapid, lat, log, name) {
+    var latlng = new google.maps.LatLng(lat, log);
+    var myOptions = {
+      zoom: 18,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    };
+    var map = new google.maps.Map(document.getElementById(mapid),
+        myOptions);
+
+	var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      title: name
+ 	});
+
+	var contentString = name;
+
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString
+	});
+
+	google.maps.event.addListener(marker, 'click', function() {
+	  infowindow.open(map,marker);
+	});
+  }
+
+</script>
+</head>
+<body onload="initialize()">
+<table style="width:100%; height:100%">
+  <div id="map1" style="width:400px; height:400px"></div>
+  <div id="map2" style="width:400px; height:400px"></div>
+  <div id="map3" style="width:400px; height:400px"></div>
+  <div id="map4" style="width:400px; height:400px"></div>
+  <div id="map5" style="width:400px; height:400px"></div>
+  <div id="map6" style="width:400px; height:400px"></div>
+  <div id="map7" style="width:400px; height:400px"></div>
+</table>
+</body>
+</html>
