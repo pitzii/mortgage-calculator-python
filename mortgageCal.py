@@ -1,5 +1,4 @@
 # a Python program to calculate mortgage payments and mortgage costs
-# tested with Python24 by      vegaseat      04jun2006
 
 # give total loan
 principal = 417000.0
