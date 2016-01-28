@@ -1,0 +1,1 @@
+Mortgage calculator written in python. Can calculate Monthly payment, Amortization table, Amortization table with prepayment and effective interest rate with prepayment.
